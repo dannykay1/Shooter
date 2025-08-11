@@ -75,6 +75,14 @@ void AShooterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 
 	// Looking
 	EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &ThisClass::Look);
+
+	// Shooting
+	EnhancedInputComponent->BindAction(ShootAction, ETriggerEvent::Triggered, this, &ThisClass::StartShooting);
+	EnhancedInputComponent->BindAction(ShootAction, ETriggerEvent::Completed, this, &ThisClass::StopShooting);
+
+	// Aiming
+	EnhancedInputComponent->BindAction(AimAction, ETriggerEvent::Triggered, this, &ThisClass::StartAiming);
+	EnhancedInputComponent->BindAction(AimAction, ETriggerEvent::Completed, this, &ThisClass::StopAiming);
 }
 
 void AShooterCharacter::Move(const FInputActionValue& Value)
@@ -103,6 +111,22 @@ void AShooterCharacter::Look(const FInputActionValue& Value)
 		AddControllerYawInput(LookAxisVector.X);
 		AddControllerPitchInput(LookAxisVector.Y);
 	}
+}
+
+void AShooterCharacter::StartShooting(const FInputActionValue& Value)
+{
+}
+
+void AShooterCharacter::StopShooting(const FInputActionValue& Value)
+{
+}
+
+void AShooterCharacter::StartAiming(const FInputActionValue& Value)
+{
+}
+
+void AShooterCharacter::StopAiming(const FInputActionValue& Value)
+{
 }
 
 #pragma optimize("", on)

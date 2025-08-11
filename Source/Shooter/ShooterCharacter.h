@@ -30,6 +30,10 @@ public:
 protected:
 	void Move(const FInputActionValue& Value);
 	void Look(const FInputActionValue& Value);
+	void StartShooting(const FInputActionValue& Value);
+	void StopShooting(const FInputActionValue& Value);
+	void StartAiming(const FInputActionValue& Value);
+	void StopAiming(const FInputActionValue& Value);
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera")
 	TObjectPtr<USpringArmComponent> SpringArmComponent;
@@ -48,4 +52,10 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Input")
 	UInputAction* LookAction;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Input")
+	UInputAction* ShootAction;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Input")
+	UInputAction* AimAction;
 };
